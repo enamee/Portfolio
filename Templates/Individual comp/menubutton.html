@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Animated Hamburger Menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .menu-toggle {
+            width: 60px;
+            height: 60px;
+            background: #333;
+            border: none;
+            border-radius: 5%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            /* transition: transform 0.3s ease; */
+            position: relative;
+        }
+
+        .burger,
+        .burger::before,
+        .burger::after {
+            width: 40px;
+            height: 4px;
+            background: #fff;
+            border-radius: 5px;
+            position: relative;
+            display: block;
+            transition: all 0.6s ease-in-out;
+            /* smooth transition */
+        }
+
+        .burger::before,
+        .burger::after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+
+        .burger::before {
+            top: -15px;
+        }
+
+        .burger::after {
+            top: 15px;
+        }
+
+        .menu-toggle .burger {
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .menu-toggle .burger {
+            transform: rotate(0deg);
+        }
+
+        .menu-toggle.active .burger {
+            transform: rotate(180deg);
+
+        }
+
+        /* Active state: turn into X */
+        .menu-toggle.active .burger::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .menu-toggle.active .burger::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        /* Keyframes for burger middle line fade out at 50% */
+        @keyframes fadeoutBurger {
+            0% {
+                background-color: #fff;
+            }
+
+            30% {
+                background-color: #fff;
+            }
+
+            50% {
+                background-color: transparent;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        @keyframes fadeinBurger {
+            0% {
+                background-color: transparent;
+            }
+
+            30% {
+                background-color: transparent;
+            }
+
+            100% {
+                background-color: #fff;
+            }
+        }
+
+        .menu-toggle .burger {
+            /* background: transparent; */
+            /* animation: fadeBurger 0.6s forwards; */
+            /* forwards keeps last frame */
+            animation: fadeinBurger 0.6s forwards;
+            transform: rotate(0deg);
+            /* transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); */
+        }
+
+        .menu-toggle.active .burger {
+            /* background: transparent; */
+            animation: fadeoutBurger 0.6s forwards;
+            /* forwards keeps last frame */
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="menu-toggle" aria-label="Toggle menu" type="button">
+        <span class="burger" aria-hidden="true"></span>
+    </button>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>

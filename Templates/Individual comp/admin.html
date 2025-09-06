@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Admin</title>
+    <meta name="description" content="Admin dashboard to manage portfolio content" />
+    <style>
+        /* Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        header,
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        header nav a {
+            color: #ddd;
+            font-weight: 500;
+        }
+
+        header nav a:hover {
+            color: #fff;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            padding: 1.5rem;
+        }
+
+        aside {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            /*position: sticky;*/
+            top: 1rem;
+            align-self: start;
+        }
+
+        aside h2 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        section {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        section header h2 {
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+        }
+
+        article {
+            margin-bottom: 1.5rem;
+        }
+
+        article h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        article h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 0.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        input,
+        textarea,
+        select,
+        button {
+            width: 100%;
+            padding: 0.5rem;
+            font: inherit;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: fit-content;
+            background: #0066cc;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #004c99;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Mobile first */
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: relative;
+                top: auto;
+            }
+
+            header nav ul {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header role="banner">
+        <div class="brand">
+            <h1>Portfolio Admin</h1>
+            <p>Manage your site content</p>
+        </div>
+
+        <nav aria-label="Primary">
+            <ul>
+                <li><a href="#dashboard">Home</a></li>
+                <li><a href="#about-admin">About</a></li>
+                <li><a href="#skills-admin">Skills</a></li>
+                <li><a href="#portfolio-admin">Portfolio</a></li>
+                <li><a href="#education-admin">Education</a></li>
+                <li><a href="#contact-admin">Contact</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside aria-label="Admin sidebar">
+        <section aria-labelledby="profile-heading">
+            <h2 id="profile-heading">Your Profile</h2>
+            <p><strong>Logged in:</strong> admin@example.com</p>
+            <p><a href="#settings">Account settings</a></p>
+        </section>
+
+        <section aria-labelledby="help-heading">
+            <h2 id="help-heading">Help & Tips</h2>
+            <p>Use the forms to update content. Changes are saved as drafts until you publish.</p>
+        </section>
+    </aside>
+
+    <main id="main">
+        <!-- HOME / DASHBOARD -->
+        <section id="dashboard" aria-labelledby="dashboard-title">
+            <header>
+                <h2 id="dashboard-title">Home (Dashboard)</h2>
+            </header>
+
+            <article aria-labelledby="site-status">
+                <h3 id="site-status">Site Status</h3>
+                <p><strong>Drafts:</strong> 0 | <strong>Published:</strong> 6</p>
+            </article>
+
+            <article aria-labelledby="quick-actions">
+                <h3 id="quick-actions">Quick Actions</h3>
+                <form aria-describedby="quick-actions-desc">
+                    <p id="quick-actions-desc">Update homepage headline and tagline.</p>
+                    <div>
+                        <label for="home-headline">Headline</label>
+                        <input id="home-headline" name="home_headline" type="text" />
+                    </div>
+                    <div>
+                        <label for="home-tagline">Tagline</label>
+                        <input id="home-tagline" name="home_tagline" type="text" />
+                    </div>
+                    <div>
+                        <label for="home-hero">Hero Image</label>
+                        <input id="home-hero" name="home_hero" type="file" accept="image/*" />
+                    </div>
+                    <button type="submit">Save Home</button>
+                </form>
+            </article>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about-admin" aria-labelledby="about-title">
+            <header>
+                <h2 id="about-title">About</h2>
+                <p>Edit your bio, headline, and profile image.</p>
+            </header>
+
+            <form aria-describedby="about-desc">
+                <p id="about-desc">This content appears on the public About section.</p>
+                <fieldset>
+                    <legend>About Content</legend>
+                    <div>
+                        <label for="about-headline">Headline</label>
+                        <input id="about-headline" name="about_headline" type="text" />
+                    </div>
+                    <div>
+                        <label for="about-bio">Bio</label>
+                        <textarea id="about-bio" name="about_bio" rows="6"></textarea>
+                    </div>
+                    <div>
+                        <label for="about-photo">Profile Photo</label>
+                        <input id="about-photo" name="about_photo" type="file" accept="image/*" />
+                    </div>
+                </fieldset>
+                <section aria-labelledby="about-links-title">
+                    <h3 id="about-links-title">Key Links</h3>
+                    <div>
+                        <label for="about-resume">Resume (PDF)</label>
+                        <input id="about-resume" name="about_resume" type="file" accept="application/pdf" />
+                    </div>
+                    <div>
+                        <label for="about-location">Location</label>
+                        <input id="about-location" name="about_location" type="text" />
+                    </div>
+                </section>
+                <button type="submit">Save About</button>
+            </form>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills-admin" aria-labelledby="skills-title">
+            <header>
+                <h2 id="skills-title">Skills</h2>
+                <p>Manage your skill groups and proficiency.</p>
+            </header>
+
+            <article aria-labelledby="skills-list-title">
+                <h3 id="skills-list-title">Current Skills</h3>
+                <ul>
+                    <!-- Example existing items; render from your data -->
+                    <li><span>JavaScript</span> — <span>Advanced</span></li>
+                    <li><span>PHP</span> — <span>Intermediate</span></li>
+                </ul>
+            </article>
+
+            <article aria-labelledby="add-skill-title">
+                <h3 id="add-skill-title">Add / Edit Skill</h3>
+                <form>
+                    <div>
+                        <label for="skill-name">Skill Name</label>
+                        <input id="skill-name" name="skill_name" type="text" />
+                    </div>
+                    <div>
+                        <label for="skill-level">Proficiency</label>
+                        <select id="skill-level" name="skill_level">
+                            <option value="">Select level</option>
+                            <option>Beginner</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+                            <option>Expert</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="skill-group">Group (e.g., Frontend, Backend)</label>
+                        <input id="skill-group" name="skill_group" type="text" />
+                    </div>
+                    <button type="submit">Save Skill</button>
+                </form>
+            </article>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio-admin" aria-labelledby="portfolio-title">
+            <header>
+                <h2 id="portfolio-title">Portfolio</h2>
+                <p>Manage projects, case studies, and media.</p>
+            </header>
+
+            <article aria-labelledby="projects-list-title">
+                <h3 id="projects-list-title">Projects</h3>
+                <ul>
+                    <!-- Example project items -->
+                    <li>
+                        <article>
+                            <header>
+                                <h4>Project Title</h4>
+                                <p><time datetime="2024-06">June 2024</time> • Web App</p>
+                            </header>
+                            <p>Short description of the project’s scope and stack.</p>
+                            <footer>
+                                <button type="button">Edit</button>
+                                <button type="button">Unpublish</button>
+                                <button type="button">Delete</button>
+                            </footer>
+                        </article>
+                    </li>
+                </ul>
+            </article>
+
+            <article aria-labelledby="add-project-title">
+                <h3 id="add-project-title">Add / Edit Project</h3>
+                <form>
+                    <fieldset>
+                        <legend>Project Details</legend>
+                        <div>
+                            <label for="project-title">Title</label>
+                            <input id="project-title" name="project_title" type="text" />
+                        </div>
+                        <div>
+                            <label for="project-type">Type</label>
+                            <input id="project-type" name="project_type" type="text"
+                                placeholder="Web App, Mobile, UI/UX…" />
+                        </div>
+                        <div>
+                            <label for="project-date">Date</label>
+                            <input id="project-date" name="project_date" type="month" />
+                        </div>
+                        <div>
+                            <label for="project-desc">Summary</label>
+                            <textarea id="project-desc" name="project_desc" rows="6"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Links & Media</legend>
+                        <div>
+                            <label for="project-url">Live URL</label>
+                            <input id="project-url" name="project_url" type="url" />
+                        </div>
+                        <div>
+                            <label for="project-repo">Repository</label>
+                            <input id="project-repo" name="project_repo" type="url" />
+                        </div>
+                        <div>
+                            <label for="project-images">Images</label>
+                            <input id="project-images" name="project_images" type="file" accept="image/*" multiple />
+                        </div>
+                    </fieldset>
+
+                    <button type="submit">Save Project</button>
+                </form>
+            </article>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education-admin" aria-labelledby="education-title">
+            <header>
+                <h2 id="education-title">Education</h2>
+                <p>Add schools, degrees, dates, and achievements.</p>
+            </header>
+
+            <article aria-labelledby="education-list-title">
+                <h3 id="education-list-title">Education Entries</h3>
+                <ol>
+                    <!-- Example entries -->
+                    <li>
+                        <article>
+                            <header>
+                                <h4>BS in Computer Science</h4>
+                                <p><span>Tech University</span> • <time datetime="2020-01">2020</time> – <time
+                                        datetime="2024-12">2024</time></p>
+                            </header>
+                            <p>Relevant coursework, honors, or brief summary.</p>
+                            <footer>
+                                <button type="button">Edit</button>
+                                <button type="button">Delete</button>
+                            </footer>
+                        </article>
+                    </li>
+                </ol>
+            </article>
+
+            <article aria-labelledby="add-edu-title">
+                <h3 id="add-edu-title">Add / Edit Education</h3>
+                <form>
+                    <div>
+                        <label for="edu-degree">Degree / Program</label>
+                        <input id="edu-degree" name="edu_degree" type="text" />
+                    </div>
+                    <div>
+                        <label for="edu-school">Institution</label>
+                        <input id="edu-school" name="edu_school" type="text" />
+                    </div>
+                    <div>
+                        <label for="edu-start">Start</label>
+                        <input id="edu-start" name="edu_start" type="month" />
+                    </div>
+                    <div>
+                        <label for="edu-end">End</label>
+                        <input id="edu-end" name="edu_end" type="month" />
+                    </div>
+                    <div>
+                        <label for="edu-notes">Notes</label>
+                        <textarea id="edu-notes" name="edu_notes" rows="4"></textarea>
+                    </div>
+                    <button type="submit">Save Education</button>
+                </form>
+            </article>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact-admin" aria-labelledby="contact-title">
+            <header>
+                <h2 id="contact-title">Contact</h2>
+                <p>Control email address, social links, and contact preferences.</p>
+            </header>
+
+            <form aria-describedby="contact-desc">
+                <p id="contact-desc">Public contact information displayed on your site.</p>
+                <fieldset>
+                    <legend>Primary Contact</legend>
+                    <div>
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" name="contact_email" type="email" />
+                    </div>
+                    <div>
+                        <label for="contact-phone">Phone (optional)</label>
+                        <input id="contact-phone" name="contact_phone" type="tel" />
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Social Links</legend>
+                    <div>
+                        <label for="link-github">GitHub</label>
+                        <input id="link-github" name="link_github" type="url" />
+                    </div>
+                    <div>
+                        <label for="link-linkedin">LinkedIn</label>
+                        <input id="link-linkedin" name="link_linkedin" type="url" />
+                    </div>
+                    <div>
+                        <label for="link-twitter">Twitter/X</label>
+                        <input id="link-twitter" name="link_twitter" type="url" />
+                    </div>
+                    <div>
+                        <label for="link-website">Website</label>
+                        <input id="link-website" name="link_website" type="url" />
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferences</legend>
+                    <div>
+                        <input id="pref-form-enable" name="pref_form_enable" type="checkbox" />
+                        <label for="pref-form-enable">Enable contact form on site</label>
+                    </div>
+                    <div>
+                        <label for="pref-auto-reply">Auto-reply message</label>
+                        <textarea id="pref-auto-reply" name="pref_auto_reply" rows="3"
+                            placeholder="Thanks for reaching out…"></textarea>
+                    </div>
+                </fieldset>
+
+                <button type="submit">Save Contact</button>
+            </form>
+        </section>
+
+        <!-- SETTINGS (optional admin utilities) -->
+        <section id="settings" aria-labelledby="settings-title">
+            <header>
+                <h2 id="settings-title">Settings</h2>
+            </header>
+            <form>
+                <fieldset>
+                    <legend>Publishing</legend>
+                    <div>
+                        <input id="publish-now" name="publish_now" type="checkbox" />
+                        <label for="publish-now">Publish changes immediately</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Site Meta</legend>
+                    <div>
+                        <label for="site-title">Site Title</label>
+                        <input id="site-title" name="site_title" type="text" />
+                    </div>
+                    <div>
+                        <label for="site-description">Meta Description</label>
+                        <textarea id="site-description" name="site_description" rows="2"></textarea>
+                    </div>
+                </fieldset>
+                <button type="submit">Save Settings</button>
+            </form>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <small>&copy; <time id="year" datetime="2025">2025</time> Portfolio Admin</small>
+    </footer>
+
+    <!-- OPTIONAL: reusable dialog template for confirmations -->
+    <template id="confirm-template">
+        <dialog aria-labelledby="confirm-title" aria-describedby="confirm-desc">
+            <h3 id="confirm-title">Confirm Action</h3>
+            <p id="confirm-desc">Are you sure you want to continue?</p>
+            <form method="dialog">
+                <button value="cancel">Cancel</button>
+                <button value="confirm">Confirm</button>
+            </form>
+        </dialog>
+    </template>
+</body>
+
+</html>

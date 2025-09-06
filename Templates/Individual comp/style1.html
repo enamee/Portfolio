@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name Animation CSS Only</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      color: #00ffcc;
+      font-family: monospace;
+      font-size: 2rem;
+    }
+
+    .typewriter {
+      display: inline-flex;
+      position: relative;
+    }
+
+    .letter-E,
+    .last-E,
+    .rest {
+      opacity: 0; /* hidden initially */
+    }
+
+    .base {
+      display: inline-block;
+      transform: translateX(0);
+    }
+
+    .last-E {
+      display: inline-block;
+      transform: translateX(0);
+    }
+
+    /* --- Animations --- */
+    .letter-E {
+      animation: showFirstE 4s forwards;
+    }
+    .base {
+      animation: moveBase 4s forwards;
+    }
+    .last-E {
+      animation: moveLastE 4s forwards;
+    }
+    .rest {
+      animation: showRest 4s forwards;
+    }
+
+    @keyframes showFirstE {
+      0%,49% { opacity: 0; }
+      50%,100% { opacity: 1; }
+    }
+
+    @keyframes moveBase {
+      0%,49% { transform: translateX(0); }
+      50%,100% { transform: translateX(1ch); } /* move NAM one letter right */
+    }
+
+    @keyframes moveLastE {
+      0% { opacity: 1; transform: translateX(0); }
+      49% { opacity: 1; transform: translateX(0); }
+      50%,100% { opacity: 1; transform: translateX(3ch); } /* move right by 3 letters */
+    }
+
+    @keyframes showRest {
+      0%,69% { opacity: 0; }
+      70%,100% { opacity: 1; }
+    }
+
+    /* Cursor */
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 2rem;
+      background: #00ffcc;
+      margin-left: 2px;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div class="typewriter">
+    <span class="letter-E">E</span>
+    <span class="base">NAM</span>
+    <span class="last-E">E</span>
+    <span class="rest"> ELAHI</span>
+  </div>
+  <div class="cursor"></div>
+</body>
+</html>

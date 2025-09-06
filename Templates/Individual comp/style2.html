@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Animation (CSS Only)</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            background: #111;
+            color: #00ffcc;
+            font-family: monospace;
+            font-size: 2rem;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            /* hides overflowing text */
+            white-space: nowrap;
+            /* keeps text on one line */
+            border-right: 3px solid #00ffcc;
+            /* cursor effect */
+            width: 0;
+            /* start hidden */
+            animation: typing 1s steps(120) forwards,
+                blink 0.7s infinite;
+        }
+
+
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 12ch
+            }
+
+            /* reveal 14 characters (ENAM E ELAHI) */
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="typewriter"><span class="letter-E">E</span><span class="base">NAM</span><span class="space"> </span><span class="last-part">E ELAHI</span></div>
+</body>
+
+</html>

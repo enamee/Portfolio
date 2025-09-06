@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+
+    <style>
+        .projects {
+            padding: 1rem;
+        }
+
+        /* Featured */
+        .featured-project {
+            display: flex;
+            flex-direction: column;
+            /* Mobile first */
+            gap: 1rem;
+        }
+
+        .featured-project img {
+            width: 100%;
+            border-radius: 1rem;
+        }
+
+        .project-info {
+            text-align: left;
+        }
+
+        /* Carousel */
+        .other-projects .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .project-card {
+            flex: 0 0 auto;
+            min-width: 200px;
+            height: 150px;
+            background: #eee;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+        }
+
+        /* Desktop adjustments */
+        @media (min-width: 768px) {
+            .featured-project {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .featured-project img {
+                max-width: 50%;
+            }
+
+            .project-info {
+                max-width: 50%;
+                padding-left: 1rem;
+            }
+
+            .carousel {
+                overflow-x: hidden;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .project-card {
+                min-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <section class="projects">
+        <h2>Featured Projects</h2>
+        <article class="project-card">
+            <img src="https://picsum.photos/id/100/400/250" alt="Project 1">
+            <div class="content">
+                <h3>Project Title 1</h3>
+                <p>Short description of the project goes here. Explain the tools, tech, or goal.</p>
+                <a href="#">View Project</a>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <img src="https://picsum.photos/id/200/400/250" alt="Project 2">
+            <div class="content">
+                <h3>Project Title 2</h3>
+                <p>Another short description of this project. Keep it concise and engaging.</p>
+                <a href="#">View Project</a>
+            </div>
+        </article>
+    </section> -->
+    <section class="projects">
+        <!-- Featured -->
+        <div class="featured-project">
+            <img src="featured.jpg" alt="Featured Project" />
+            <div class="project-info">
+                <h2>Featured Project Title</h2>
+                <p>Short description about the project...</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
+        </div>
+
+        <!-- Carousel -->
+        <div class="other-projects">
+            <h3>Other Projects</h3>
+            <div class="carousel">
+                <article class="project-card">
+                    <img src="https://picsum.photos/id/100/400/250" alt="Project 1">
+                    <div class="content">
+                        <h3>Project Title 1</h3>
+                        <p>Short description of the project goes here. Explain the tools, tech, or goal.</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </article>
+                <div class="project-card">Project 2</div>
+                <div class="project-card">Project 3</div>
+                <div class="project-card">Project 4</div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

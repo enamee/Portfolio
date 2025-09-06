@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            height: 500px;
+            background-color: #000;
+            position: relative;
+        }
+        .box {
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+            color: #fff;
+            position: absolute;
+            top: calc(50% - 100px);
+            left: calc(50% - 300px);
+            width: 600px;
+            height: 200px;
+            background-color: palevioletred;
+            margin: 0 auto;
+            transform: rotateX(0deg) ;
+            transform-origin: top;
+            transition: transform 2s linear;
+        }
+        .container:hover .box {
+            transform: rotateX(180deg) ;
+            transform-origin: top;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container"><div class="box">A</div></div>
+</body>
+</html>

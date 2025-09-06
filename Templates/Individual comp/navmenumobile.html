@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavMobile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: palevioletred;
+        }
+
+        .block {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        .btn--toggle {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        /*=============================================*/
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            perspective: 800px;
+            /* needed for 3D rotation */
+        }
+
+        .nav-menu li {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            font-size: 16px;
+
+            opacity: 0;
+            /* transform: rotateX(180deg) translateY(-20px); */
+            transform-origin: top;
+            transition: transform 2s ease, opacity 2s ease;
+        }
+
+        /* Show menu when active */
+        .nav-menu.active li {
+            opacity: 1;
+            transform: rotateX(0deg) translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="block">
+        <button class="btn--toggle" aria-label="Toggle mobile menu">Show / Hide</button>
+    </div>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="home"><a href="#home">Home</a></li>
+            <li class="about"><a href="#about">About</a></li>
+            <li class="skills"><a href="#skills">Skills</a></li>
+            <li class="portfolio"><a href="#portfolio">Portfolio</a></li>
+            <li class="education"><a href="#education">Education</a></li>
+            <li class="contact"><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <script>
+        const toggleBtn = document.querySelector('.btn--toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const menuItems = document.querySelectorAll('.nav-menu li');
+
+        let menuOpen = false;
+
+        toggleBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+
+            if (menuOpen) {
+                navMenu.classList.add('active');
+                menuItems.forEach((item, index) => {
+                    item.style.transitionDelay = `${index * 0.1}s`; // stagger showing
+                    item.style.transform = `rotateX(90deg) translateY(${0 + index * 10}px)`;
+                    item.style.transitionDelay = `${index * 0.1}s`;
+                });
+            } else {
+                menuItems.forEach((item, index) => {
+                    item.style.transitionDelay = `${(menuItems.length - index - 1) * 0.1}s`; // stagger hiding
+
+                });
+                navMenu.classList.remove('active');
+            }
+        });
+
+        navMenu.addEventListener('click', (e) => {
+            console.log(e.target.getAttribute('class') + ' is clicked!');
+        });
+
+    </script>
+</body>
+
+</html>

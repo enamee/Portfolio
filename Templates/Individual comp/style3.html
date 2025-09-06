@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name Animation</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      color: #00ffcc;
+      font-family: monospace;
+      font-size: 2rem;
+    }
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 2rem;
+      background: #00ffcc;
+      margin-left: 2px;
+      animation: blink 0.7s infinite;
+    }
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div id="text"></div><div class="cursor"></div>
+
+  <script>
+    const steps = [
+      "NAME",
+      "NAM E",
+      "ENAM E",
+      "ENAM E ELAHI"
+    ];
+
+    let i = 0; // step index
+    let j = 0; // character index within step
+    let current = steps[0][0]; // start typing first letter
+    const speed = 150; // typing speed
+    const textEl = document.getElementById("text");
+
+    function typeEffect() {
+      if (j < steps[i].length) {
+        current = steps[i].substring(0, j + 1); // keep substring of current step
+        textEl.textContent = current;
+        j++;
+        setTimeout(typeEffect, speed);
+      } else {
+        // Move to next step
+        i++;
+        if (i < steps.length) {
+          j = steps[i-1].length; // continue from length of previous step
+          setTimeout(typeEffect, 800); // delay before next step
+        }
+      }
+    }
+
+    typeEffect();
+  </script>
+</body>
+</html>
