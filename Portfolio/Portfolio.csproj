@@ -69,6 +69,14 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="SQL_Queries\Skills.sql" />
+    <Content Include="src\about.jpg" />
+    <Content Include="src\image1.png" />
+    <Content Include="src\image2.png" />
+    <Content Include="src\Portfolio_about.jpg" />
+    <Content Include="src\Portfolio_about.png" />
+    <Content Include="src\Portfolio_home.jpg" />
+    <Content Include="src\Portfolio_home.png" />
+    <Content Include="src\project_plan.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +107,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

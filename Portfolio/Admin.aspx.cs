@@ -10,8 +10,6 @@ namespace Portfolio
 {
     public partial class Admin : System.Web.UI.Page
     {
-        protected string ConnStr = ConfigurationManager.ConnectionStrings["PortfolioDBConnection"].ConnectionString;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

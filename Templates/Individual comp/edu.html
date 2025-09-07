@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            padding-left: 40px;
+            border-left: 2px solid #ccc;
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        /* Dot on the timeline */
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4CAF50;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #ccc;
+        }
+
+        /* Sticky degree name */
+        .degree {
+            position: sticky;
+            top: 10px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .details h4 {
+            margin: 0 0 5px;
+            font-size: 1.1rem;
+            color: #222;
+        }
+
+        .details p {
+            margin: 2px 0;
+            color: #555;
+        }
+
+        /* Mobile first - details stack below degree */
+        @media (min-width: 700px) {
+            .timeline-item {
+                display: flex;
+                gap: 20px;
+                align-items: flex-start;
+            }
+
+            .degree {
+                min-width: 200px;
+                text-align: right;
+            }
+
+            .details {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Education</h2>
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="degree">MSc Computer Science</div>
+            <div class="details">
+                <h4>University of Example</h4>
+                <p>2019 – 2021</p>
+                <p>CGPA: 3.9 / 4.0</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="degree">BSc Information Technology</div>
+            <div class="details">
+                <h4>Example Institute of Tech</h4>
+                <p>2015 – 2019</p>
+                <p>CGPA: 3.7 / 4.0</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="degree">High School</div>
+            <div class="details">
+                <h4>Example High School</h4>
+                <p>2013 – 2015</p>
+                <p>Grade: A+</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

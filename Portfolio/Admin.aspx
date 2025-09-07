@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Portfolio.Admin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Portfolio.Admin" MaintainScrollPositionOnPostBack="true" %>
 
 <!DOCTYPE html>
 
@@ -13,7 +13,7 @@
     </header>
     <form id="form1" runat="server">
         <div>
-
+            
             <!-- Categories Section -->
             <h2>Skill Categories</h2>
             <asp:GridView ID="gvCategories" runat="server" AutoGenerateColumns="False" DataKeyNames="CategoryID"

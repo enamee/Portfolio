@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #007bff;
+        }
+
+        /* Featured Projects */
+        .featured-projects {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .featured-projects {
+                flex-direction: row;
+            }
+        }
+
+        .featured-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .featured-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .featured-card h3 {
+            margin: 0;
+            color: #007bff;
+        }
+
+        .featured-card p {
+            flex-grow: 1;
+        }
+
+        .featured-card a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            text-decoration: none;
+            color: #fff;
+            background: #007bff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .featured-card a:hover {
+            background: #0056b3;
+        }
+
+        /* Projects Slider */
+        .projects-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .projects-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projects-slider::-webkit-scrollbar-thumb {
+            background: #007bff;
+            border-radius: 4px;
+        }
+
+        .project-card {
+            min-width: 220px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .project-card h4 {
+            margin-top: 0.5rem;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="section" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+
+            <!-- Featured Projects -->
+            <div class="featured-projects">
+                <div class="featured-card">
+                    <img src="https://via.placeholder.com/400x200.png?text=Project+1" alt="Project 1">
+                    <h3>Web Development</h3>
+                    <p>Creating modern, responsive websites and web applications using the latest technologies.</p>
+                    <a href="#">View Project</a>
+                    <a href="#">Source Code</a>
+                </div>
+                <div class="featured-card">
+                    <img src="https://via.placeholder.com/400x200.png?text=Project+2" alt="Project 2">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern personal portfolio website showcasing skills, projects, and blog integration.</p>
+                    <a href="#">View Project</a>
+                    <a href="#">Source Code</a>
+                </div>
+                <div class="featured-card">
+                    <img src="https://via.placeholder.com/400x200.png?text=Project+2" alt="Project 2">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern personal portfolio website showcasing skills, projects, and blog integration.</p>
+                    <a href="#">View Project</a>
+                    <a href="#">Source Code</a>
+                </div>
+                <div class="featured-card">
+                    <img src="https://via.placeholder.com/400x200.png?text=Project+2" alt="Project 2">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern personal portfolio website showcasing skills, projects, and blog integration.</p>
+                    <a href="#">View Project</a>
+                    <a href="#">Source Code</a>
+                </div>
+                <div class="featured-card">
+                    <img src="https://via.placeholder.com/400x200.png?text=Project+2" alt="Project 2">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern personal portfolio website showcasing skills, projects, and blog integration.</p>
+                    <a href="#">View Project</a>
+                    <a href="#">Source Code</a>
+                </div>
+            </div>
+
+            <!-- Other Projects Slider -->
+            <div class="projects-slider">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/220x140.png?text=Project+3" alt="Project 3">
+                    <h4>Backend Development</h4>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/220x140.png?text=Project+4" alt="Project 4">
+                    <h4>Web Design</h4>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/220x140.png?text=Project+5" alt="Project 5">
+                    <h4>Ride Sharing App</h4>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/220x140.png?text=Project+6" alt="Project 6">
+                    <h4>Chat Application</h4>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/220x140.png?text=Project+7" alt="Project 7">
+                    <h4>Task Manager</h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>

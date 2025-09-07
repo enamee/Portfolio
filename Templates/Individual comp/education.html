@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            padding-left: 2rem;
+            border-left: 3px solid #007bff;
+            /* vertical line */
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-point {
+            position: absolute;
+            left: -11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 3px solid #007bff;
+            border-radius: 50%;
+        }
+
+        .degree {
+            font-weight: bold;
+            color: #007bff;
+            position: sticky;
+            top: 1rem;
+            /* sticks when scrolling */
+            background: #f8f9fa;
+            padding: 0.5rem;
+        }
+
+        .details {
+            margin-left: 2rem;
+            padding: 0.5rem 1rem;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 4rem;
+            /* sticks separately */
+        }
+
+        /* Desktop layout */
+        @media (min-width: 768px) {
+            .timeline {
+                display: grid;
+                grid-template-columns: 1fr 3px 2fr;
+                gap: 2rem;
+                border: none;
+            }
+
+            .timeline::before {
+                content: "";
+                grid-column: 2;
+                grid-row: 1 / -1;
+                background: #007bff;
+                width: 3px;
+                justify-self: center;
+            }
+
+            .timeline-item {
+                display: contents;
+                /* let children participate in grid */
+            }
+
+            .timeline-point {
+                grid-column: 2;
+                justify-self: center;
+                z-index: 2;
+            }
+
+            .degree {
+                grid-column: 1;
+                text-align: right;
+            }
+
+            .details {
+                grid-column: 3;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Education Timeline</h2>
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-point"></div>
+            <div class="degree">B.Sc. in Computer Science (2018 - 2022)</div>
+            <div class="details">
+                <h4>University of Example</h4>
+                <p>CGPA: 3.85 / 4.00</p>
+                <p>Focused on software engineering, algorithms, and database systems.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-point"></div>
+            <div class="degree">Higher Secondary (2016 - 2018)</div>
+            <div class="details">
+                <h4>Example College</h4>
+                <p>GPA: 5.00 / 5.00</p>
+                <p>Science background with majors in Physics, Chemistry, Mathematics.</p>
+            </div>
+        </div>
+        co
+        <div class="timeline-item">
+            <div class="timeline-point"></div>
+            <div class="degree">Secondary School (2014 - 2016)</div>
+            <div class="details">
+                <h4>Example High School</h4>
+                <p>GPA: 5.00 / 5.00</p>
+                <p>Major achievement: Science Fair 1st Place, 2015.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
