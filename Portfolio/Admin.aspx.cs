@@ -14,6 +14,8 @@ namespace Portfolio
         {
             if (!IsPostBack)
             {
+                BindHome();
+                BindAbout();
                 BindCategories();
                 BindSkills();
             }

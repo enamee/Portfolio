@@ -87,6 +87,12 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Admin.About.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Home.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Admin\Admin.SkillCategories.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -94,7 +100,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\AboutRepository.cs" />
     <Compile Include="Utilities\DatabaseHelper.cs" />
+    <Compile Include="Utilities\HomeRepository.cs" />
     <Compile Include="Utilities\SkillCategoriesRepository.cs" />
     <Compile Include="Utilities\SkillsRepository.cs" />
   </ItemGroup>
