@@ -152,6 +152,89 @@
             </asp:GridView>
             <asp:Button ID="btnAddSkill" runat="server" Text="Add Skill" OnClick="btnAddSkill_Click" />
 
+            <!-- Projects Section -->
+            <section class="admin-section" id="projects-section">
+                <h2>Manage Projects</h2>
+
+                <asp:GridView ID="gvProjects" runat="server" AutoGenerateColumns="False" CssClass="table"
+                    DataKeyNames="ProjectID"
+                    OnRowEditing="gvProjects_RowEditing"
+                    OnRowCancelingEdit="gvProjects_RowCancelingEdit"
+                    OnRowUpdating="gvProjects_RowUpdating"
+                    OnRowCommand="gvProjects_RowCommand">
+                    <Columns>
+                        <asp:BoundField DataField="ProjectID" HeaderText="ID" ReadOnly="true" />
+
+                        <asp:TemplateField HeaderText="Title">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtEditTitle" runat="server" Text='<%# Bind("ProjectTitle") %>'
+                                    CssClass="form-control"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <%# Eval("ProjectTitle") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Description">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtEditDescription" runat="server" Text='<%# Bind("ProjectDescription") %>'
+                                    TextMode="MultiLine" Rows="3" CssClass="form-control"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <%# Eval("ProjectDescription") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Image">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtEditImage" runat="server" Text='<%# Bind("ProjectImage") %>'
+                                    CssClass="form-control"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Image ID="imgProject" runat="server" ImageUrl='<%# Eval("ProjectImage") %>'
+                                    Width="100px" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Live Link">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtEditLink" runat="server" Text='<%# Bind("ProjectLink") %>'
+                                    CssClass="form-control"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <a href='<%# Eval("ProjectLink") %>' target="_blank">Demo</a>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Github">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtEditGithub" runat="server" Text='<%# Bind("GithubLink") %>'
+                                    CssClass="form-control"></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <a href='<%# Eval("GithubLink") %>' target="_blank">Source</a>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:CheckBoxField DataField="IsFeatured" HeaderText="Featured" />
+
+                        
+                        <asp:TemplateField HeaderText="Order">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnUp" runat="server" CommandName="MoveUp" CommandArgument='<%# Eval("ProjectID") %>'>
+                        ⬆
+                                </asp:LinkButton>
+                                <asp:LinkButton ID="btnDown" runat="server" CommandName="MoveDown" CommandArgument='<%# Eval("ProjectID") %>'>
+                        ⬇
+                                </asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:CommandField ShowEditButton="true" />
+                    </Columns>
+                </asp:GridView>
+            </section>
+
         </div>
     </form>
     <footer></footer>

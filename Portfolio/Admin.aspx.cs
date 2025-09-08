@@ -33,6 +33,7 @@ namespace Portfolio
                 BindAbout();
                 BindCategories();
                 BindSkills();
+                BindProjects();
             }
         }
     }

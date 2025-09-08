@@ -95,6 +95,9 @@
     <Compile Include="Admin\Admin.Home.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Admin\Admin.Projects.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Admin\Admin.SkillCategories.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -119,6 +122,7 @@
     <Compile Include="Utilities\AboutRepository.cs" />
     <Compile Include="Utilities\DatabaseHelper.cs" />
     <Compile Include="Utilities\HomeRepository.cs" />
+    <Compile Include="Utilities\ProjectsRepository.cs" />
     <Compile Include="Utilities\SkillCategoriesRepository.cs" />
     <Compile Include="Utilities\SkillsRepository.cs" />
   </ItemGroup>
