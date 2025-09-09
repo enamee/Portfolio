@@ -71,6 +71,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="Scripts\script.js" />
     <Content Include="SQL_Queries\Skills.sql" />
     <Content Include="src\about.jpg" />
     <Content Include="src\image1.png" />
@@ -80,6 +81,10 @@
     <Content Include="src\Portfolio_home.jpg" />
     <Content Include="src\Portfolio_home.png" />
     <Content Include="src\project_plan.jpg" />
+    <Content Include="Styles\about.css" />
+    <Content Include="Styles\contact.css" />
+    <Content Include="Styles\home.css" />
+    <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

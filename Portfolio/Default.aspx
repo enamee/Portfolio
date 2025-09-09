@@ -5,6 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Portfolio - Enam</title>
+    <link href="Styles/style.css" rel="stylesheet" />
+    <link href="Styles/home.css" rel="stylesheet" />
+    <link href="Styles/about.css" rel="stylesheet" />
+    <link href="Styles/contact.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -195,5 +199,6 @@
             </section>
         </main>
     </form>
+    <script src="Scripts/script.js"></script>
 </body>
 </html>
