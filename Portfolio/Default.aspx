@@ -8,6 +8,9 @@
     <link href="Styles/style.css" rel="stylesheet" />
     <link href="Styles/home.css" rel="stylesheet" />
     <link href="Styles/about.css" rel="stylesheet" />
+    <link href="Styles/skills.css" rel="stylesheet" />
+    <link href="Styles/projects.css" rel="stylesheet" />
+    <link href="Styles/education.css" rel="stylesheet" />
     <link href="Styles/contact.css" rel="stylesheet" />
 </head>
 <body>

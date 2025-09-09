@@ -83,7 +83,10 @@
     <Content Include="src\project_plan.jpg" />
     <Content Include="Styles\about.css" />
     <Content Include="Styles\contact.css" />
+    <Content Include="Styles\education.css" />
     <Content Include="Styles\home.css" />
+    <Content Include="Styles\projects.css" />
+    <Content Include="Styles\skills.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
