@@ -1,5 +1,6 @@
 ﻿#contact {
     background-color: whitesmoke;
+    box-shadow: unset;
 }
 
 .contact-grid {
@@ -24,6 +25,7 @@
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+
 }
 
     .contact-form label {
@@ -50,7 +52,7 @@
 
 .btn {
     display: inline-block;
-    background: #0077ff;
+    background: var(--header-color);
     color: #fff;
     font-weight: 600;
     padding: 0.8rem 1.5rem;
@@ -81,6 +83,15 @@
     .contact-info, .contact-form {
         flex: 1;
     }
+
+    .contact-info {
+        flex: 2 1 0; /* grow=2, shrink=1, basis=0 */
+    }
+
+    .contact-form {
+        flex: 1 1 0; /* grow=1, shrink=1, basis=0 */
+            min-width: 30vw;
+    }
 }
 
 /* Desktop View */
@@ -97,4 +108,5 @@
     .btn {
         font-size: 1rem;
     }
+    
 }

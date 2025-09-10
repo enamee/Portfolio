@@ -71,6 +71,7 @@ namespace Portfolio
             c.CategoryName,
             c.DisplayOrder AS CategoryOrder,
             s.SkillName,
+            s.ProficiencyLevel,
             s.DisplayOrder AS SkillOrder
         FROM Skills s
         INNER JOIN SkillCategories c ON s.CategoryID = c.CategoryID
@@ -79,21 +80,25 @@ namespace Portfolio
             DataTable dt = DatabaseHelper.ExecuteSelect(query);
 
             var grouped = dt.AsEnumerable()
-                .GroupBy(r => new
-                {
-                    CategoryID = (int)r["CategoryID"],
-                    CategoryName = r["CategoryName"].ToString(),
-                    CategoryOrder = (int)r["CategoryOrder"]
-                })
-                .OrderBy(g => g.Key.CategoryOrder) // ✅ order before projection
-                .Select(g => new
-                {
-                    g.Key.CategoryName,
-                    Skills = g.OrderBy(x => (int)x["SkillOrder"])
-                              .Select(x => new { SkillName = x["SkillName"].ToString() })
-                              .ToList()
-                })
-                .ToList();
+            .GroupBy(r => new
+            {
+                CategoryID = (int)r["CategoryID"],
+                CategoryName = r["CategoryName"].ToString(),
+                CategoryOrder = (int)r["CategoryOrder"]
+            })
+            .OrderBy(g => g.Key.CategoryOrder)
+            .Select(g => new
+            {
+                g.Key.CategoryName,
+                Skills = g.OrderBy(x => (int)x["SkillOrder"])
+                  .Select(x => new
+                  {
+                      SkillName = x["SkillName"].ToString(),
+                      ProficiencyLevel = (int)x["ProficiencyLevel"]
+                  })
+                  .ToList()
+            })
+            .ToList();
 
             rptCategories.DataSource = grouped;
             rptCategories.DataBind();
@@ -101,7 +106,7 @@ namespace Portfolio
 
         private void LoadPortfolio()
         {
-            // Get Featured Projects (max 2)
+            // Featured Projects (max 2)
             string featuredQuery = @"
         SELECT TOP 2 * 
         FROM Projects
@@ -112,12 +117,12 @@ namespace Portfolio
             rptFeatured.DataSource = dtFeatured;
             rptFeatured.DataBind();
 
-            // Get Other Projects
+            // Other Projects
             string othersQuery = @"
         SELECT * 
         FROM Projects
         WHERE IsFeatured = 0
-        ORDER BY CreatedAt DESC";  // Or DisplayOrder if you want
+        ORDER BY CreatedAt DESC";
 
             DataTable dtOthers = DatabaseHelper.ExecuteSelect(othersQuery);
             rptOthers.DataSource = dtOthers;

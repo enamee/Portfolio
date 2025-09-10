@@ -1,40 +1,94 @@
-﻿.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.skill-category {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-    .skill-category:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .skill-category h3 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-        color: #0078ff;
-    }
-
+﻿/* Skill list reset */
 .skill-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-    .skill-list li {
-        background: #f5f8ff;
-        padding: 6px 12px;
-        border-radius: 6px;
-        margin: 6px 0;
-        font-size: 0.9rem;
-        color: #333;
+.skill-item {
+    margin-bottom: 1rem;
+}
+
+/* Skill name */
+.skill-name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+/* Skill bar background */
+.skill-bar {
+    width: 100%;
+    height: 12px;
+    background: #e5e5e5;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fill inside bar */
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0077ff, #00c6ff);
+    border-radius: 6px;
+    position: relative;
+    transition: width 0.6s ease-in-out;
+}
+
+/* Percentage text inside bar */
+.skill-percent {
+    position: absolute;
+    right: 8px;
+    top: -22px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0077ff;
+}
+
+/* Tablet layout */
+@media (min-width: 768px) {
+    .skill-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .skill-name {
+        flex: 1;
+        margin-bottom: 0;
+    }
+
+    .skill-bar {
+        flex: 2;
+    }
+}
+
+/* Desktop layout */
+@media (min-width: 1024px) {
+    .skill-bar {
+        height: 14px;
+    }
+
+    .skill-percent {
+        font-size: 0.8rem;
+    }
+}
+
+.skill-fill {
+    width: 0; /* start at 0 */
+    height: 100%;
+    background: linear-gradient(90deg, #35667c, #5cb0d5);
+    border-radius: 6px;
+    position: relative;
+    transition: width 1.5s ease-in-out;
+}
+
+.skill-category {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+    .skill-category h3 {
+        margin-bottom: 1rem;
     }

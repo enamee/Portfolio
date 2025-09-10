@@ -46,14 +46,20 @@
                     </h1>
                     <p class="hero-description">
                         <span class="hero-subtitle">
-                            <asp:Literal ID="litHeroSubtitle" runat="server"></asp:Literal></span> <br />
-                        <span class="hero-text"> — <asp:Literal ID="litHeroDescription" runat="server"></asp:Literal></span>
+                            <asp:Literal ID="litHeroSubtitle" runat="server"></asp:Literal></span>
+                        <br />
+                        <span class="hero-text">—
+                            <asp:Literal ID="litHeroDescription" runat="server"></asp:Literal></span>
                     </p>
+                    <div class="links">
+                        <a href="#about" class="cta-button">Learn More</a>
+                        <a href="assets/Resume.pdf" download class="resume-btn">Download Resume</a>
+                    </div>
                     <div class="image-container">
                         <asp:Image ID="imgProfileBack" runat="server" CssClass="profile-image-back" />
                         <asp:Image ID="imgProfile" runat="server" CssClass="profile-image" />
                     </div>
-                    <a href="#about" class="cta-button">Learn More</a>
+                    
                 </div>
             </section>
 
@@ -84,7 +90,14 @@
                                     <ul class="skill-list">
                                         <asp:Repeater ID="rptSkills" runat="server" DataSource='<%# Eval("Skills") %>'>
                                             <ItemTemplate>
-                                                <li><%# Eval("SkillName") %></li>
+                                                <li class="skill-item">
+                                                    <span class="skill-name"><%# Eval("SkillName") %></span>
+                                                    <div class="skill-bar">
+                                                        <div class="skill-fill" data-level="<%# Eval("ProficiencyLevel") %>">
+                                                            <span class="skill-percent"><%# Eval("ProficiencyLevel") %>%</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
                                             </ItemTemplate>
                                         </asp:Repeater>
                                     </ul>
@@ -98,30 +111,36 @@
             <!-- Portfolio Section -->
             <section class="section" id="portfolio">
                 <div class="container">
-                    <h2 class="section-title" data-text="PORTFOLIO">PORTFOLIO</h2>
+                    <h2 class="section-title" data-text="PROJECTS">PROJECTS</h2>
 
                     <!-- Featured Projects -->
                     <div class="featured-projects">
                         <asp:Repeater ID="rptFeatured" runat="server">
                             <ItemTemplate>
-                                <div class="featured-card">
+                                <div class="featured-card" onclick="window.open('<%# Eval("GithubLink") %>', '_blank')">
                                     <img src='<%# Eval("ProjectImage") %>' alt='<%# Eval("ProjectTitle") %>' />
                                     <h3><%# Eval("ProjectTitle") %></h3>
                                     <p><%# Eval("ProjectDescription") %></p>
-                                    <a href='<%# Eval("ProjectLink") %>' target="_blank">View Project</a>
-                                    <a href='<%# Eval("GithubLink") %>' target="_blank">Source Code</a>
+                                    <div class="tags">
+                                        <%# string.Join("", Eval("Languages").ToString().Split(',')
+                                .Select(lang => $"<span class='tag'>{lang.Trim()}</span>")) %>
+                                    </div>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
                     </div>
 
-                    <!-- Other Projects Slider -->
+                    <!-- Other Projects -->
                     <div class="projects-slider">
                         <asp:Repeater ID="rptOthers" runat="server">
                             <ItemTemplate>
-                                <div class="project-card">
+                                <div class="project-card" onclick="window.open('<%# Eval("GithubLink") %>', '_blank')">
                                     <img src='<%# Eval("ProjectImage") %>' alt='<%# Eval("ProjectTitle") %>' />
                                     <h4><%# Eval("ProjectTitle") %></h4>
+                                    <div class="tags">
+                                        <%# string.Join("", Eval("Languages").ToString().Split(',')
+                                .Select(lang => $"<span class='tag'>{lang.Trim()}</span>")) %>
+                                    </div>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -138,7 +157,9 @@
                         <ItemTemplate>
                             <div class="timeline-item">
                                 <div class="timeline-point"></div>
-                                <div class="degree"><p><%# Eval("Degree") %></p></div>
+                                <div class="degree">
+                                    <p><%# Eval("Degree") %></p>
+                                </div>
                                 <div class="details">
                                     <h4><%# Eval("Institution") %></h4>
                                     <p><%# Eval("Result") %></p>

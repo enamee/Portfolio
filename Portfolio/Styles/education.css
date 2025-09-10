@@ -2,7 +2,7 @@
     position: relative;
     margin: 0 auto;
     padding-left: 2rem;
-    border-left: 3px solid #007bff;
+    border-left: 3px solid var(--header-color);
     /* vertical line */
 }
 
@@ -12,18 +12,22 @@
 }
 
 .timeline-point {
+    position: absolute;
+    top: 30px;
+    left: -43px;
     width: 20px;
     height: 20px;
     background: #fff;
-    border: 3px solid #007bff;
+    border: 3px solid var(--header-color);
     border-radius: 50%;
-    position: sticky;
-    top: var(--header-height);
+    /*    position: sticky;
+    top: var(--header-height);*/
 }
 
 .degree {
     font-weight: bold;
-    color: #007bff;
+    color: var(--header-color);
+    font-size: 1.1rem;
     position: sticky;
     top: var(--header-height);
     left: 0;
@@ -54,14 +58,14 @@
         border: none;
     }
 
-        .timeline-item::before {
-            content: "";
-            grid-column: 2;
-            grid-row: 1 / -1;
-            background: #007bff;
-            width: 3px;
-            justify-self: center;
-        }
+    .timeline-item::before {
+        content: "";
+        grid-column: 2;
+        grid-row: 1 / -1;
+        background: var(--header-color);
+        width: 3px;
+        justify-self: center;
+    }
 
     .timeline-item {
         display: contents;
@@ -69,9 +73,13 @@
     }
 
     .timeline-point {
+        position: absolute;
+        top: 30px;
+        left: -9px;
         grid-column: 2;
         justify-self: center;
         z-index: 2;
+/*        background-color: var(--header-color);*/
     }
 
     .degree {

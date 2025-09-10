@@ -21,10 +21,7 @@
     
 }
 
-.image-container {
-    grid-area: 1 / 2 / 3 / 3;
-    justify-self: center;
-}
+
 
 .image-container {
     /* padding: auto; */
@@ -64,18 +61,18 @@
 
 .hero-subtitle {
     font-family: var(--serif-font);
-    font-size: 5vw;
+    font-size: 4rem;
     font-weight: bold;
-    letter-spacing: -0.2rem;
+    letter-spacing: -0.1rem;
     font-weight: 400;
     margin-bottom: 1rem;
 }
 
 .hero-text {
     display: block;
-    font-size: 2vw;
+    font-size: 1.5rem;
+    
 }
-
 
 
 /*================= Name ==================*/
@@ -84,8 +81,9 @@
     display: flex;
     position: relative;
     align-items: center;
-    font-family: var(--body-font);
-    font-weight: normal;
+    font-family: var(--headings-font);
+    font-weight: bold;
+    font-size: 3vw;
 }
 
 .first-E {
@@ -226,9 +224,60 @@
     }
 }
 
-
-
 .typewriter {
-    font-size: 2rem;
     word-wrap: break-word; /* prevent overflow */
+    color: var(--header-color);
+}
+
+/* Mobile-first: stacked layout */
+.home-content {
+    display: grid;
+    grid-template-columns: 1fr; /* single column */
+    gap: 1.5rem;
+}
+
+/* Make name spans appear one below another on mobile */
+@media (max-width: 767px) {
+    .typewriter span {
+        display: block;
+    }
+
+    .image-container {
+        order: 4; /* ensure image always stays at the bottom */
+        justify-self: center;
+    }
+
+    .cta-button {
+        order: 3; /* keep button above image */
+        justify-self: start; /* or center if you prefer */
+    }
+}
+
+/* Desktop view */
+@media (min-width: 910px) {
+    .home-content {
+        grid-template-columns: 1fr 1fr; /* text | image */
+        align-items: center;
+    }
+    .hero-subtitle {
+        letter-spacing: -0.2rem;
+    }
+
+    .image-container {
+        grid-area: 1 / 2 / 3 / 3; /* lock to right column */
+        justify-self: center;
+    }
+}
+
+.resume-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--header-color);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    margin-left: 1rem;
 }

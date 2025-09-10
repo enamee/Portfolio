@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Admin - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="Styles/Admin.css" />
 </head>
 <body>
     <header>
@@ -30,16 +31,9 @@
                 </Columns>
             </asp:GridView>
 
-            <h3>Add New Home Content</h3>
-            <asp:TextBox ID="txtSubtitle" runat="server" Placeholder="Subtitle"></asp:TextBox><br />
-            <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Rows="4" Placeholder="Description"></asp:TextBox><br />
-            <asp:TextBox ID="txtProfileImage" runat="server" Placeholder="Profile Image URL"></asp:TextBox><br />
-            <asp:TextBox ID="txtProfileImageBack" runat="server" Placeholder="Profile Image Back URL"></asp:TextBox><br />
-            <asp:Button ID="btnAddHome" runat="server" Text="Add Home Content" OnClick="btnAddHome_Click" />
-
             <!-- About Section -->
             <section class="admin-section" id="about-section">
-                <h2>Manage About Section</h2>
+                <h2>About Section</h2>
 
                 <asp:GridView ID="gvAbout" runat="server" AutoGenerateColumns="False" CssClass="table"
                     DataKeyNames="AboutId"

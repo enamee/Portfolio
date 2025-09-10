@@ -37,8 +37,9 @@ ol {
     list-style: none;
 }
 
-a {
+a, a:focus, a:visited, a:active {
     text-decoration: none;
+    color: black;
 }
 
 img {
@@ -83,7 +84,7 @@ img {
 /*================== Header ================*/
 .header {
     font-family: var(--headings-font);
-    font-size: 2rem;
+    font-size: 1.5rem;
     background-color: whitesmoke;
     padding: 0 10vw;
     /*    margin: 0 1rem;*/
@@ -103,15 +104,37 @@ img {
 .logo {
     /*    padding: 1rem 0;*/
     /*    line-height: 1rem;*/
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--header-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .nav {
+    background-color: #fff;
+    padding: 15px 15px;
+    padding-left: 25px;
+    font-size: 1rem;
     position: fixed;
-    right: var(--header-margin-left-right);
+    right: 10vw;
     top: calc(var(--header-height) + 0.5rem);
     /* display: none; */
     visibility: hidden;
-    /* transition: all 1s ease; */
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    /*     transition: all 1s ease; */
 }
 
 .nav-list {
@@ -119,7 +142,8 @@ img {
     flex-direction: column;
     align-items: flex-end;
     row-gap: 1rem;
-    /* transition: all 0.3s ease; */
+    color: white;
+/*     transition: all 0.3s ease; */
 }
 
 .mobile-nav-toggle {
@@ -134,5 +158,49 @@ img {
 .active {
     /* display: block; */
     visibility: visible;
-    transition: all 0.3s ease;
+/*    transition: all 0.3s ease;*/
 }
+
+@media (min-width: 910px) {
+    .nav {
+        position: static;
+        visibility: visible;
+        background-color: unset;
+        
+        
+    }
+    .nav-list {
+        flex-direction: row;
+        column-gap: 2rem;
+        align-items: center;
+        
+    }
+    .mobile-nav-toggle {
+        display: none;
+    }
+}
+
+
+a {
+    position: relative;
+    /*color: inherit;*/ /* keeps your current color */
+    text-decoration: none; /* remove default underline */
+    padding: 0.2rem 0; /* a little space for underline */
+}
+
+    /* The underline */
+    a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px; /* underline thickness */
+        background: var(--header-color); /* your accent color */
+        transition: width 0.3s ease;
+    }
+
+    /* On hover, animate underline */
+    a:hover::after {
+        width: 100%;
+    }

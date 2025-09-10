@@ -16,12 +16,6 @@ namespace Portfolio
             gvHome.DataBind();
         }
 
-        protected void btnAddHome_Click(object sender, EventArgs e)
-        {
-            _homeRepo.Insert(txtSubtitle.Text, txtDescription.Text, txtProfileImage.Text, txtProfileImageBack.Text);
-            BindHome();
-        }
-
         protected void gvHome_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
         {
             gvHome.EditIndex = e.NewEditIndex;

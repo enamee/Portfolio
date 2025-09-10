@@ -30,7 +30,7 @@
 
     .featured-card h3 {
         margin: 0;
-        color: #007bff;
+        color: var(--header-color);
     }
 
     .featured-card p {
@@ -65,7 +65,7 @@
     }
 
     .projects-slider::-webkit-scrollbar-thumb {
-        background: #007bff;
+        background: var(--header-color);
         border-radius: 4px;
     }
 
@@ -88,5 +88,28 @@
 
     .project-card h4 {
         margin-top: 0.5rem;
-        color: #007bff;
+        color: var(--header-color);
+    }
+
+.tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background: #eee;
+    color: #333;
+    padding: 4px 8px;
+    margin: 2px;
+    border-radius: 12px;
+    font-size: 0.85em;
+}
+
+.project-card, .featured-card {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    .project-card:hover, .featured-card:hover {
+        transform: translateY(-5px);
     }

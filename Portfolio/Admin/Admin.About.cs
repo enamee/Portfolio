@@ -17,12 +17,14 @@ namespace Portfolio
             DataTable dt = _aboutRepo.GetAll();
             gvAbout.DataSource = dt;
             gvAbout.DataBind();
+            //Response.Redirect(Request.RawUrl);
         }
 
         protected void gvAbout_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvAbout.EditIndex = e.NewEditIndex;
             BindAbout();
+            
         }
 
         protected void gvAbout_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -42,6 +44,7 @@ namespace Portfolio
 
             gvAbout.EditIndex = -1;
             BindAbout();
+            Response.Redirect(Request.RawUrl);
         }
     }
 }
