@@ -54,6 +54,7 @@ namespace Portfolio
 
             gvCategories.EditIndex = -1;
             BindCategories();
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void gvCategories_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -61,6 +62,7 @@ namespace Portfolio
             int id = (int)gvCategories.DataKeys[e.RowIndex].Value;
             _categoryRepo.Delete(id);
             BindCategories();
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void gvCategories_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -87,6 +89,7 @@ namespace Portfolio
                 _categoryRepo.Update(swapId, swapRows[0]["CategoryName"].ToString(), order);
 
                 BindCategories();
+                Response.Redirect(Request.RawUrl);
             }
         }
     }

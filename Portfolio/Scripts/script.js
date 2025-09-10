@@ -36,3 +36,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   skillFills.forEach(fill => observer.observe(fill));
 });
+
+// Get the button
+    const goTopBtn = document.getElementById("goTopBtn");
+
+    // Show button after scrolling down 200px
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        goTopBtn.style.display = "block";
+      } else {
+        goTopBtn.style.display = "none";
+      }
+    };
+
+    // Scroll to top smoothly
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }

@@ -19,6 +19,13 @@
     --header-margin-left-right: 1rem;
 }
 
+.dark-theme {
+    /* Dark theme overrides */
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #1e90ff;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-snap-type: mandatory;
@@ -203,4 +210,26 @@ a {
     /* On hover, animate underline */
     a:hover::after {
         width: 100%;
+    }
+
+
+#goTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--header-color);
+    color: white;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+}
+
+    #goTopBtn:hover {
+        background-color: var(--header-color);
     }

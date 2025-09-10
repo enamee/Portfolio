@@ -78,6 +78,15 @@ namespace Portfolio
         protected global::System.Web.UI.WebControls.Button btnAddSkill;
 
         /// <summary>
+        /// btnAddProject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddProject;
+
+        /// <summary>
         /// gvProjects control.
         /// </summary>
         /// <remarks>

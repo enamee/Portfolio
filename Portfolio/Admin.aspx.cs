@@ -34,6 +34,7 @@ namespace Portfolio
                 BindCategories();
                 BindSkills();
                 BindProjects();
+                //BindEducation();
             }
         }
     }

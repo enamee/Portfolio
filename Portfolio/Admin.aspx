@@ -1,16 +1,25 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Portfolio.Admin" MaintainScrollPositionOnPostBack="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Portfolio.Admin" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Admin - Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="Styles/Admin.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/admin.css" />
+    <style>
+        .links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <section class="project">
-        </section>
+        <div class="links">
+            <a class="portfolio-btn" href="/Default.aspx">Portfolio</a>
+            <a class="logout-btn" href="/Logout.aspx">Logout</a>
+        </div>
     </header>
     <form id="form1" runat="server">
         <div>
@@ -99,7 +108,7 @@
 
             <!-- Skills Section -->
             <h2>Skills</h2>
-            <asp:GridView ID="gvSkills" runat="server" AutoGenerateColumns="False" OnRowEditing="gvSkills_RowEditing"
+            <asp:GridView ID="gvSkills" runat="server" AutoGenerateColumns="False" OnRowDeleting="gvSkills_RowDeleting" OnRowEditing="gvSkills_RowEditing"
                 OnRowUpdating="gvSkills_RowUpdating" OnRowCancelingEdit="gvSkills_RowCancelingEdit" DataKeyNames="SkillID">
                 <Columns>
                     <asp:BoundField DataField="SkillID" HeaderText="ID" ReadOnly="true" />
@@ -149,6 +158,9 @@
             <!-- Projects Section -->
             <section class="admin-section" id="projects-section">
                 <h2>Manage Projects</h2>
+
+                <asp:Button ID="btnAddProject" runat="server" Text="Add Project"
+                    CssClass="btn btn-primary" OnClick="btnAddProject_Click" />
 
                 <asp:GridView ID="gvProjects" runat="server" AutoGenerateColumns="False" CssClass="table"
                     DataKeyNames="ProjectID"
@@ -212,7 +224,6 @@
 
                         <asp:CheckBoxField DataField="IsFeatured" HeaderText="Featured" />
 
-                        
                         <asp:TemplateField HeaderText="Order">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnUp" runat="server" CommandName="MoveUp" CommandArgument='<%# Eval("ProjectID") %>'>
@@ -228,6 +239,9 @@
                     </Columns>
                 </asp:GridView>
             </section>
+
+            <!-- Education Section -->
+            
 
         </div>
     </form>

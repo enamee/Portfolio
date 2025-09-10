@@ -20,7 +20,6 @@ namespace Portfolio
         {
             gvHome.EditIndex = e.NewEditIndex;
             BindHome();
-            Response.Redirect(Request.RawUrl);
         }
 
         protected void gvHome_RowUpdating(object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
@@ -49,6 +48,7 @@ namespace Portfolio
             int id = Convert.ToInt32(gvHome.DataKeys[e.RowIndex].Value);
             _homeRepo.Delete(id);
             BindHome();
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

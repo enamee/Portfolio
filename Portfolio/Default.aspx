@@ -222,6 +222,9 @@
                 </div>
             </section>
         </main>
+        <!-- <button onclick="changeTheme()" id="themeChange">*</button> -->
+        <!-- Go to Top Button -->
+  <button onclick="topFunction()" id="goTopBtn">↑</button>
     </form>
     <script src="Scripts/script.js"></script>
 </body>

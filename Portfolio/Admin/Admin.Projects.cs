@@ -43,6 +43,7 @@ namespace Portfolio
 
             gvProjects.EditIndex = -1;
             BindProjects();
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void gvProjects_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -57,6 +58,13 @@ namespace Portfolio
                 _projectsRepo.SwapOrder(Convert.ToInt32(e.CommandArgument), "Down");
                 BindProjects();
             }
+        }
+        protected void btnAddProject_Click(object sender, EventArgs e)
+        {
+            // For now, insert placeholder project (you can extend to open a modal or form)
+            _projectsRepo.Insert("New Project", "Description here", "/images/default.png", "#", "#");
+            BindProjects();
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

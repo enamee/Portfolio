@@ -65,5 +65,22 @@ namespace Portfolio
                     new SqlParameter("@id", swapId));
             }
         }
+        public void Insert(string title, string description, string image, string link, string github)
+        {
+            string query = @"INSERT INTO Projects 
+                     (ProjectTitle, ProjectDescription, ProjectImage, ProjectLink, GithubLink, IsFeatured, DisplayOrder, CreatedAt, UpdatedAt)
+                     VALUES (@title, @desc, @image, @link, @github, 0, 
+                             (SELECT ISNULL(MAX(DisplayOrder),0)+1 FROM Projects), GETDATE(), GETDATE())";
+
+            SqlParameter[] parameters = {
+                new SqlParameter("@title", title),
+                new SqlParameter("@desc", description),
+                new SqlParameter("@image", image),
+                new SqlParameter("@link", link),
+                new SqlParameter("@github", github)
+            };
+
+            DatabaseHelper.ExecuteNonQuery(query, parameters);
+        }
     }
 }

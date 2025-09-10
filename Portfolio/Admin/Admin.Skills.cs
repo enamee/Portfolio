@@ -95,6 +95,7 @@ namespace Portfolio
                                    Convert.ToInt32(swapRows[0]["ProficiencyLevel"]), order);
 
                 BindSkills();
+                Response.Redirect(Request.RawUrl);
             }
         }
         protected void gvSkills_RowEditing(object sender, GridViewEditEventArgs e)
@@ -232,6 +233,7 @@ namespace Portfolio
             gvSkills.EditIndex = dt.Rows.Count - 1; // set last row to edit mode
             gvSkills.DataSource = dt;
             gvSkills.DataBind();
+            Response.Redirect(Request.RawUrl);
         }
         protected void gvSkills_RowDataBound(object sender, GridViewRowEventArgs e)
         {
