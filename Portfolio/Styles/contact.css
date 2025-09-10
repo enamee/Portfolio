@@ -110,3 +110,9 @@
     }
     
 }
+
+
+.social-links a {
+    color: var(--header-color);
+    margin-right: 1rem;
+}

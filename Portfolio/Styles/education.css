@@ -49,6 +49,10 @@
     /* sticks separately */
 }
 
+.degree p{
+    font-size: 1.5rem;
+}
+
 /* Desktop layout */
 @media (min-width: 768px) {
     .timeline-grid {
